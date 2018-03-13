@@ -16,6 +16,8 @@
 package com.handmark.pulltorefresh.library;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.util.AttributeSet;
@@ -58,7 +60,7 @@ public class PullToRefreshRecyclerView extends PullToRefreshBase<RecyclerView> {
     @Override
     protected RecyclerView createRefreshableView(Context context,
                                                  AttributeSet attrs) {
-        return new RecyclerView(context, attrs);
+        return new InternalRecyclerView(context, attrs);
     }
 
     @Override
@@ -158,6 +160,42 @@ public class PullToRefreshRecyclerView extends PullToRefreshBase<RecyclerView> {
                 .getChildCount() - 1);
         return lastVisibleChild != null ? mRefreshableView
                 .getChildAdapterPosition(lastVisibleChild) : -1;
+    }
+
+    /**
+     *
+     */
+    protected class InternalRecyclerView extends RecyclerView {
+
+        public InternalRecyclerView(Context context) {
+            super(context);
+        }
+
+        public InternalRecyclerView(Context context, @Nullable AttributeSet attrs) {
+            super(context, attrs);
+        }
+
+        public InternalRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
+            super(context, attrs, defStyle);
+        }
+
+        @Override
+        protected void dispatchDraw(Canvas canvas) {
+            try {
+                super.dispatchDraw(canvas);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void draw(Canvas c) {
+            try {
+                super.draw(c);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

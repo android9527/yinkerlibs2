@@ -20,12 +20,12 @@ import com.handmark.pulltorefresh.library.R;
  */
 public class MeRefreshHeaderLayout extends LoadingLayout {
 
-    private AnimationDrawable animBabyShake;
+    private AnimationDrawable mAnimDrawable;
     private LinearLayout myInnerLayout;
 
-    private ImageView pullToRefreshHeader;
+    private ImageView mPullToRefreshHeader;
 
-    private TextView refreshState;
+    private TextView mRefreshState;
 
     public MeRefreshHeaderLayout(Context context, final PullToRefreshBase.Mode mode, final PullToRefreshBase.Orientation scrollDirection, TypedArray attrs) {
         super(context, mode, scrollDirection, attrs);
@@ -34,7 +34,7 @@ public class MeRefreshHeaderLayout extends LoadingLayout {
 
         LayoutInflater.from(context).inflate(R.layout.header_loading_layout, this);
         myInnerLayout = (LinearLayout) findViewById(R.id.fl_inner_header);
-        pullToRefreshHeader = (ImageView) myInnerLayout.findViewById(R.id.pull_to_refresh_header);
+        mPullToRefreshHeader = (ImageView) myInnerLayout.findViewById(R.id.pull_to_refresh_header);
         LayoutParams lp = (LayoutParams) myInnerLayout.getLayoutParams();
 
         switch (mode) {
@@ -47,10 +47,10 @@ public class MeRefreshHeaderLayout extends LoadingLayout {
                 break;
         }
         TextView refreshTitle = (TextView) myInnerLayout.findViewById(R.id.tv_title);
-        refreshState = (TextView) myInnerLayout.findViewById(R.id.tv_state);
+        mRefreshState = (TextView) myInnerLayout.findViewById(R.id.tv_state);
         refreshTitle.setText(R.string.me_refresh_title);
         refreshTitle.setTextColor(Color.argb(255, 255, 255, 255));
-        refreshState.setTextColor(Color.argb(128, 255, 255, 255));
+        mRefreshState.setTextColor(Color.argb(128, 255, 255, 255));
     }
 
     @Override
@@ -79,74 +79,74 @@ public class MeRefreshHeaderLayout extends LoadingLayout {
     protected void onPullImpl(float scaleOfLayout) {
 
         if (scaleOfLayout >= 0 && scaleOfLayout < 0.15) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_01);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_01);
         } else if (scaleOfLayout >= 0.15 && scaleOfLayout < 0.20) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_02);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_02);
         } else if (scaleOfLayout >= 0.20 && scaleOfLayout < 0.25) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_03);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_03);
         } else if (scaleOfLayout >= 0.25 && scaleOfLayout < 0.30) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_04);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_04);
         } else if (scaleOfLayout >= 0.30 && scaleOfLayout < 0.35) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_05);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_05);
         } else if (scaleOfLayout >= 0.35 && scaleOfLayout < 0.40) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_06);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_06);
         } else if (scaleOfLayout >= 0.40 && scaleOfLayout < 0.45) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_07);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_07);
         } else if (scaleOfLayout >= 0.45 && scaleOfLayout < 0.50) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_08);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_08);
         } else if (scaleOfLayout >= 0.50 && scaleOfLayout < 0.55) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_09);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_09);
         } else if (scaleOfLayout >= 0.55 && scaleOfLayout < 0.60) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_10);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_10);
         } else if (scaleOfLayout >= 0.60 && scaleOfLayout < 0.65) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_11);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_11);
         } else if (scaleOfLayout >= 0.65 && scaleOfLayout < 0.70) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_12);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_12);
         } else if (scaleOfLayout >= 0.70 && scaleOfLayout < 0.75) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_13);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_13);
         } else if (scaleOfLayout >= 0.75 && scaleOfLayout < 0.80) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_14);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_14);
         } else if (scaleOfLayout >= 0.80 && scaleOfLayout < 0.85) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_15);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_15);
         } else if (scaleOfLayout >= 0.85 && scaleOfLayout < 0.90) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_16);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_16);
         } else if (scaleOfLayout >= 0.90 && scaleOfLayout < 0.95) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_17);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_17);
         } else {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_down_18);
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_down_18);
         }
 
-//        refreshState.setText(R.string.pull_to_refresh_pull_label);
+//        mRefreshState.setText(R.string.pull_to_refresh_pull_label);
 
     }
 
     // 开始下拉时的回调
     @Override
     protected void pullToRefreshImpl() {
-        if (refreshState != null) {
-            refreshState.setText(R.string.pull_to_refresh_pull_label);
+        if (mRefreshState != null) {
+            mRefreshState.setText(R.string.pull_to_refresh_pull_label);
         }
     }
 
     // 释放后刷新时的回调
     @Override
     protected void refreshingImpl() {
-        if (refreshState != null) {
-            refreshState.setText(R.string.pull_to_refresh_refreshing_label);
+        if (mRefreshState != null) {
+            mRefreshState.setText(R.string.pull_to_refresh_refreshing_label);
         }
 
-        if (pullToRefreshHeader != null) {
-            pullToRefreshHeader.setImageResource(R.drawable.pull_to_refresh_rotate);
-            animBabyShake = (AnimationDrawable) pullToRefreshHeader.getDrawable();
-            animBabyShake.start();
+        if (mPullToRefreshHeader != null) {
+            mPullToRefreshHeader.setImageResource(R.drawable.pull_to_refresh_rotate);
+            mAnimDrawable = (AnimationDrawable) mPullToRefreshHeader.getDrawable();
+            mAnimDrawable.start();
         }
     }
 
     // "加载头部"完全显示时的回调, 释放刷新
     @Override
     protected void releaseToRefreshImpl() {
-        if (refreshState != null) {
-            refreshState.setText(R.string.pull_to_refresh_release_label);
+        if (mRefreshState != null) {
+            mRefreshState.setText(R.string.pull_to_refresh_release_label);
         }
     }
 
@@ -155,12 +155,12 @@ public class MeRefreshHeaderLayout extends LoadingLayout {
      */
     @Override
     public void onHeadRefreshSuccess() {
-        if (refreshState != null) {
-            refreshState.setText(R.string.pull_to_refresh_refresh_success);
+        if (mRefreshState != null) {
+            mRefreshState.setText(R.string.pull_to_refresh_refresh_success);
         }
         stopAnimation();
-        if (pullToRefreshHeader != null) {
-            pullToRefreshHeader.setImageResource(R.drawable.rotate_17);
+        if (mPullToRefreshHeader != null) {
+            mPullToRefreshHeader.setImageResource(R.drawable.rotate_17);
         }
     }
 
@@ -170,9 +170,9 @@ public class MeRefreshHeaderLayout extends LoadingLayout {
     }
 
     private void stopAnimation() {
-        if (animBabyShake != null) {
-            animBabyShake.stop();
-            animBabyShake = null;
+        if (mAnimDrawable != null) {
+            mAnimDrawable.stop();
+            mAnimDrawable = null;
         }
     }
 }

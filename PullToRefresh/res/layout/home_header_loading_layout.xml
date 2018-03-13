@@ -5,9 +5,10 @@
               android:layout_height="wrap_content"
               android:gravity="center_horizontal"
               android:orientation="vertical"
-              android:paddingBottom="20dp"
-              android:paddingTop="20dp"
-              xmlns:tool="http://schemas.android.com/tools">
+              android:paddingBottom="10dp"
+              android:paddingTop="10dp"
+              android:background="#00000000"
+              xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/pull_to_refresh_header"
@@ -17,21 +18,23 @@
         />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textSize="14dp"
-        android:textColor="#FFFFFFFF"
-        android:text="@string/me_refresh_title"/>
+        android:textColor="#333333"
+        tools:text="@string/me_refresh_title"/>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/tv_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:textColor="#7FFFFFFF"
+        android:textColor="#333333"
         android:textSize="11dp"
-        tool:text="@string/pull_to_refresh_pull_label"/>
+        tools:text="@string/pull_to_refresh_pull_label"/>
 
 </LinearLayout>

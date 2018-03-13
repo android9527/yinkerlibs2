@@ -189,7 +189,7 @@ public interface IPullToRefresh<T extends View> {
 
 	/**
 	 * Set OnRefreshListener for the Widget
-	 * 
+	 *
 	 * @param listener - Listener to be used when the Widget is set to Refresh
 	 */
     void setOnRefreshListener(OnRefreshListener2<T> listener);

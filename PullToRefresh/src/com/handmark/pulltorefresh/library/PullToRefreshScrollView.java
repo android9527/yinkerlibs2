@@ -57,7 +57,7 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     private static final int SCROLLLIMIT = 20;
 
     public interface ScrollListener {
-        void scrollOritention(int oritention);
+        void scrollOrientation(int orientation);
     }
 
     private ScrollListener mListener;
@@ -67,10 +67,10 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
         super.onScrollChanged(l, t, oldl, oldt);
         if (oldt > t && oldt - t > SCROLLLIMIT) {// 向下
             if (mListener != null)
-                mListener.scrollOritention(SCROLL_DOWN);
+                mListener.scrollOrientation(SCROLL_DOWN);
         } else if (oldt < t && t - oldt > SCROLLLIMIT) {// 向上
             if (mListener != null)
-                mListener.scrollOritention(SCROLL_UP);
+                mListener.scrollOrientation(SCROLL_UP);
         }
     }
 

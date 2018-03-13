@@ -57,6 +57,7 @@
             <flag name="custom" value="0x4" />
             <flag name="me_refresh" value="0x5" />
             <flag name="invest_refresh" value="0x6" />
+            <flag name="home_refresh" value="0x7" />
         </attr>
 
         <!-- Whether the user can scroll while the View is Refreshing -->

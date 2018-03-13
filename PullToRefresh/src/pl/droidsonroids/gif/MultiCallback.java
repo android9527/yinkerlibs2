@@ -5,6 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Drawable.Callback;
+import android.support.annotation.NonNull;
 import android.view.View;
 
 /**
@@ -17,10 +18,10 @@ import android.view.View;
  */
 public class MultiCallback implements Callback {
 
-	private final CopyOnWriteArrayList<ViewWeakReference> mViewList = new CopyOnWriteArrayList<ViewWeakReference>();
+	private final CopyOnWriteArrayList<ViewWeakReference> mViewList = new CopyOnWriteArrayList<>();
 
 	@Override
-	public void invalidateDrawable(final Drawable who) {
+	public void invalidateDrawable(@NonNull final Drawable who) {
 		for (int i = 0; i < mViewList.size(); i++) {
 			final ViewWeakReference reference = mViewList.get(i);
 			final View view = reference.get();
@@ -34,8 +35,8 @@ public class MultiCallback implements Callback {
 	}
 
 	@Override
-	public void scheduleDrawable(final Drawable who, final Runnable what,
-			final long when) {
+	public void scheduleDrawable(@NonNull final Drawable who, @NonNull final Runnable what,
+                                 final long when) {
 		for (int i = 0; i < mViewList.size(); i++) {
 			final ViewWeakReference reference = mViewList.get(i);
 			final View view = reference.get();
@@ -49,7 +50,7 @@ public class MultiCallback implements Callback {
 	}
 
 	@Override
-	public void unscheduleDrawable(final Drawable who, final Runnable what) {
+	public void unscheduleDrawable(@NonNull final Drawable who, @NonNull final Runnable what) {
 		for (int i = 0; i < mViewList.size(); i++) {
 			final ViewWeakReference reference = mViewList.get(i);
 			final View view = reference.get();
@@ -107,15 +108,12 @@ public class MultiCallback implements Callback {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o) {
-				return true;
-			}
-			if (o == null || getClass() != o.getClass()) {
-				return false;
-			}
+            if (this == o) {
+                return true;
+            }
+            return !(o == null || getClass() != o.getClass()) && get() == ((ViewWeakReference) o).get();
 
-			return get() == ((ViewWeakReference) o).get();
-		}
+        }
 
 		@Override
 		public int hashCode() {

@@ -1,3 +1,3 @@
-include ':PullToRefresh', ':FlycoTabLayoutLib',
+include ':FlycoTabLayoutLib',
         ':SlidingLibrary', ':ToggleButtonLib', ':bdintegrationsdk', ':buriedsdk', ':apstsLibrary',
-        ':wheelview', ':Udesk_Separate_UI', ':LockLibrary', ':coverflow', ':gravitysnaphelper', ':materialripperlayout', ':multitypeview', ':shadow', ':ZDepthShadowLayout'
+        ':wheelview', ':Udesk_Separate_UI', ':LockLibrary', ':coverflow', ':gravitysnaphelper', ':materialripperlayout', ':multitypeview', ':shadow', ':ZDepthShadowLayout', ':PullToRefresh'

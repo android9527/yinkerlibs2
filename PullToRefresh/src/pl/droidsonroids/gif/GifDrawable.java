@@ -22,6 +22,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.StrictMode;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.widget.MediaController.MediaPlayerControl;
 
 import java.io.File;
@@ -58,7 +59,7 @@ public class GifDrawable extends Drawable implements Animatable,
 	 */
 	final Bitmap mBuffer;
 	final GifInfoHandle mNativeInfoHandle;
-	final ConcurrentLinkedQueue<AnimationListener> mListeners = new ConcurrentLinkedQueue<AnimationListener>();
+	final ConcurrentLinkedQueue<AnimationListener> mListeners = new ConcurrentLinkedQueue<>();
 	private ColorStateList mTint;
 	private PorterDuffColorFilter mTintFilter;
 	private PorterDuff.Mode mTintMode;
@@ -777,7 +778,7 @@ public class GifDrawable extends Drawable implements Animatable,
 	 *            canvas to draw into
 	 */
 	@Override
-	public void draw(Canvas canvas) {
+	public void draw(@NonNull Canvas canvas) {
 		final boolean clearColorFilter;
 		if (mTintFilter != null && mPaint.getColorFilter() == null) {
 			mPaint.setColorFilter(mTintFilter);
@@ -898,7 +899,7 @@ public class GifDrawable extends Drawable implements Animatable,
 		invalidateSelf();
 	}
 
-	public void setTintMode(PorterDuff.Mode tintMode) {
+	public void setTintMode(@NonNull PorterDuff.Mode tintMode) {
 		mTintMode = tintMode;
 		mTintFilter = updateTintFilter(mTint, tintMode);
 		invalidateSelf();

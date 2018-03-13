@@ -291,7 +291,7 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
              */
             try {
                 super.dispatchDraw(canvas);
-            } catch (IndexOutOfBoundsException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -305,7 +305,7 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
              */
             try {
                 return super.dispatchTouchEvent(ev);
-            } catch (IndexOutOfBoundsException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 return false;
             }

@@ -41,6 +41,7 @@ import com.handmark.pulltorefresh.library.internal.CustomLoadingLayout;
 import com.handmark.pulltorefresh.library.internal.FlipLoadingLayout;
 import com.handmark.pulltorefresh.library.internal.FrameLoadingLayout;
 import com.handmark.pulltorefresh.library.internal.GifLoadingLayout;
+import com.handmark.pulltorefresh.library.internal.HomeRefreshHeaderLayout;
 import com.handmark.pulltorefresh.library.internal.InvestRefreshHeaderLayout;
 import com.handmark.pulltorefresh.library.internal.LoadingLayout;
 import com.handmark.pulltorefresh.library.internal.MeRefreshHeaderLayout;
@@ -86,7 +87,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
     private Mode mMode = Mode.getDefault();
 
     private Mode mCurrentMode;
-    T mRefreshableView;
+    protected T mRefreshableView;
     private FrameLayout mRefreshableViewWrapper;
 
     private boolean mShowViewWhileRefreshing = true;
@@ -860,7 +861,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
             return;
         }
 
-        super.onRestoreInstanceState(state);
+        try {
+            super.onRestoreInstanceState(state);
+        } catch (Exception e) {
+//            e.printStackTrace();
+        }
     }
 
     @Override
@@ -1354,6 +1359,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
         ME_REFRESH,
 
         INVEST_REFRESH,
+        HOME_REFRESH,
 
         CUSTOM;
 
@@ -1386,6 +1392,9 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
                     return ME_REFRESH;
                 case 0x06:
                     return INVEST_REFRESH;
+                case 0x07:
+                    return HOME_REFRESH;
+
             }
         }
 
@@ -1406,6 +1415,8 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
                     return new MeRefreshHeaderLayout(context, mode, scrollDirection, attrs);
                 case INVEST_REFRESH:
                     return new InvestRefreshHeaderLayout(context, mode, scrollDirection, attrs);
+                case HOME_REFRESH:
+                    return new HomeRefreshHeaderLayout(context, mode, scrollDirection, attrs);
             }
         }
     }
@@ -1579,7 +1590,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
      * @author Chris Banes
      */
     public interface OnRefreshListener2<V extends View> {
-        // TODO These methods need renaming to START/END rather than DOWN/UP
 
         /**
          * onPullDownToRefresh will be called only when the user has Pulled from

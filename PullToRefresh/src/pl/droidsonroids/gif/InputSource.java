@@ -17,7 +17,7 @@ import android.net.Uri;
  * Abstract class for all input sources, to be used with {@link GifTextureView}
  */
 public abstract class InputSource {
-	private boolean mIsOpaque; // TODO propagate
+	private boolean mIsOpaque;
 
 	InputSource() {
 	}

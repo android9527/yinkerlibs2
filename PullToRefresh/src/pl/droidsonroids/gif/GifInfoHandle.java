@@ -14,6 +14,7 @@ import android.view.Surface;
 /**
  * Native library wrapper
  */
+@SuppressWarnings("JniMissingFunction")
 final class GifInfoHandle {
 
 	/**
