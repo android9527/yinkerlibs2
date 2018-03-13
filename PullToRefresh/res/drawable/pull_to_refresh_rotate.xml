@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false" >
+    <item android:drawable="@drawable/rotate_01" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_02" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_03" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_04" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_05" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_06" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_07" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_08" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_09" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_10" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_11" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_12" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_13" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_14" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_15" android:duration="20"/>
+    <item android:drawable="@drawable/rotate_16" android:duration="20"/>
+
+</animation-list>

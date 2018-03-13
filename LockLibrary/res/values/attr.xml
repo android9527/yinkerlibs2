@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LockPatternView Res Attribute -->
+    <declare-styleable name="LockPatternView">
+        <attr name="cellBitmapCircleDefault" format="reference" />
+        <attr name="cellBitmapCircleGreen" format="reference" />
+        <attr name="cellBitmapCircleRed" format="reference" />
+        <attr name="cellArrowGreenUp" format="reference" />
+        <attr name="cellArrowRedUp" format="reference" />
+        <attr name="pathDiameterFactor" format="float"/>
+        <attr name="pathColor" format="color" />
+        <attr name="pathWrongColor" format="color" />
+        <attr name="pathAlpha" format="integer" />
+        <attr name="hitFactor" format="float" />
+    </declare-styleable>
+</resources>

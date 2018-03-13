@@ -1,0 +1,3 @@
+include ':PullToRefresh', ':FlycoTabLayoutLib',
+        ':SlidingLibrary', ':ToggleButtonLib', ':bdintegrationsdk', ':buriedsdk', ':apstsLibrary',
+        ':wheelview', ':Udesk_Separate_UI', ':LockLibrary'

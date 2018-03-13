@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+
+repositories {
+    jcenter()
+    maven { url 'https://oss.jfrog.org/libs-snapshot' }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dexOptions {
+    }
+}
+
+// Warning:WARNING: Dependency xpp3:xpp3:1.1.4c is ignored for debugAndroidTest as it may be conflicting with the internal version provided by Android.
+//In case of problem, please repackage it with jarjar to change the class packages
+configurations {
+    all*.exclude group: 'xpp3', module: 'xpp3'
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/universal-image-loader-1.9.4.jar')
+    compile 'org.igniterealtime.smack:smack-android-extensions:4.1.0'
+    compile 'org.igniterealtime.smack:smack-tcp:4.1.0'
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+    compile 'io.reactivex:rxjava:1.1.4'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile files('libs/udesk_sdk_3.2.1.jar')
+    compile 'com.qiniu:qiniu-android-sdk:7.0.9'
+}
+
+apply plugin: 'maven'
+group repositoryGroup
+//version '0.0.1'
+version '1.1.2-SNAPSHOT' //表示测试版，正式发版改成“-RELEASE”
+//打成aar格式
+apply from: '../release-as-aar.gradle' //引用上传插件
+//打成jar格式
+//apply from: '../release-as-jar.gradle'

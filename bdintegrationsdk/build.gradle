@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+apply plugin: 'maven'
+group repositoryGroup
+//version '0.0.1'
+version '1.1-SNAPSHOT' //表示测试版，正式发版改成“-RELEASE”
+//打成aar格式
+apply from: '../release-as-aar.gradle' //引用上传插件
+//打成jar格式
+//apply from: '../release-as-jar.gradle'
